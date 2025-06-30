@@ -6,8 +6,8 @@ import java.util.Set;
 
 public abstract class Game {
 
-    GameState gameState;
-    final List<Turn> turns = new ArrayList<>();
+    protected GameState gameState;
+    protected final List<Turn> turns = new ArrayList<>();
 
     public abstract Set<Color> getColors();
 
