@@ -51,8 +51,7 @@ public final class Room {
         if(password.isPresent() && ru.getPassword().isEmpty())
             throw new InvalidPasswordException();
 
-        if(password.isPresent() && ru.getPassword().isPresent() &&
-                !ru.getPassword().get().equals(password.get()))
+        if(password.isPresent() && !ru.getPassword().get().equals(password.get()))
             throw new InvalidPasswordException();
 
         addPlayer(ru.getPlayer());
@@ -67,7 +66,7 @@ public final class Room {
             throw new NoPermissionException();
         if(ru.getPassword().isEmpty())
             throw new InvalidPasswordException();
-        this.password = Optional.of(ru.getPassword().get());
+        this.password = ru.getPassword();
     }
 
     public void apply(RoomUpdate ru) {
